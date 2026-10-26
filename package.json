@@ -1,0 +1,25 @@
+{
+  "name": "house-of-laado-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:storefront": "npm --prefix apps/storefront run dev",
+    "dev:api": "npm --prefix apps/api run dev",
+    "build:storefront": "npm --prefix apps/storefront run build",
+    "lint:storefront": "npm --prefix apps/storefront run lint",
+    "test:api": "npm --prefix apps/api test",
+    "seed:api": "npm --prefix apps/api run seed",
+    "import:shopify": "npm --prefix apps/api run import:shopify",
+    "smoke": "node scripts/smoke-test.js",
+    "backup": "node scripts/backup-database.js",
+    "restore": "node scripts/restore-database.js",
+    "drill": "node scripts/run-restore-drill.js",
+    "benchmark": "node scripts/run-load-test.js",
+    "tunnel": "npx localtunnel --port 3000 --subdomain houseoflaado-preview"
+  },
+  "type": "module",
+  "devDependencies": {}
+}

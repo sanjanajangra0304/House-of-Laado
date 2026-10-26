@@ -1,0 +1,54 @@
+services:
+  # =========================================================================
+  # HOUSE OF LAADO ATELIER — PRODUCTION BACKEND REST API
+  # =========================================================================
+  - type: web
+    name: house-of-laado-api
+    runtime: node
+    plan: starter
+    region: singapore # Lowest latency to Indian subcontinent customers
+    rootDir: apps/api
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CLIENT_URL
+        sync: false # Set to your production Vercel storefront domain (e.g. https://houseoflaado.com)
+      - key: MONGODB_URI
+        sync: false # Set to your MongoDB Atlas connection string
+      - key: MONGODB_DB_NAME
+        value: house_of_laado
+      - key: JWT_SECRET
+        generateValue: true # Render will generate a cryptographically strong 32-byte secret
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: ADMIN_EMAIL
+        sync: false # Shop owner admin email
+      - key: ADMIN_PASSWORD
+        sync: false # Shop owner admin password
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM
+        value: orders@houseoflaado.com

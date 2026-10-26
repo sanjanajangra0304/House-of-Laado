@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Palette Base Color Variables (Navy #1F2A44, Warm Beige #E8DCC8, Soft Gold #C6A75E) */
+  --color-navy: #1F2A44;
+  --color-navy-dark: #141C2E;
+  --color-navy-light: #2C3A5E;
+  --color-navy-85: rgba(31, 42, 68, 0.85);
+  --color-navy-70: rgba(31, 42, 68, 0.70);
+  --color-navy-50: rgba(31, 42, 68, 0.50);
+  --color-navy-20: rgba(31, 42, 68, 0.20);
+  --color-navy-10: rgba(31, 42, 68, 0.10);
+
+  --color-warm-beige: #E8DCC8;
+  --color-beige-light: #FAF7F2;
+  --color-beige-card: #F5ECE0;
+  --color-beige-border: #E8DCC8;
+  --color-beige-subtle: rgba(232, 220, 200, 0.35);
+
+  --color-soft-gold: #C6A75E;
+  --color-gold-dark: #A6883F;
+  --color-gold-light: #E2CA8E;
+  --color-gold-subtle: rgba(198, 167, 94, 0.25);
+
+  /* Backward Compatibility Aliases */
+  --color-burgundy: var(--color-navy);
+  --color-burgundy-dark: var(--color-navy-dark);
+  --color-burgundy-light: var(--color-navy-light);
+  --color-burgundy-85: var(--color-navy-85);
+  --color-burgundy-70: var(--color-navy-70);
+  --color-burgundy-50: var(--color-navy-50);
+  --color-burgundy-20: var(--color-navy-20);
+  --color-burgundy-10: var(--color-navy-10);
+
+  --color-rose: var(--color-soft-gold);
+  --color-rose-dark: var(--color-gold-dark);
+  --color-rose-light: var(--color-gold-light);
+
+  --color-blush: var(--color-warm-beige);
+  --color-blush-light: var(--color-beige-card);
+  --color-blush-border: var(--color-warm-beige);
+  --color-blush-subtle: var(--color-beige-subtle);
+
+  --color-olive: var(--color-soft-gold);
+  --color-olive-dark: var(--color-gold-dark);
+  --color-olive-light: var(--color-gold-light);
+
+  --color-ivory: var(--color-warm-beige);
+  --color-ivory-light: var(--color-beige-light);
+  --color-ivory-soft: #FDFBF8;
+
+  /* Semantic Aliases */
+  --color-primary: var(--color-navy);
+  --color-primary-dark: var(--color-navy-dark);
+  --color-secondary: var(--color-soft-gold);
+  --color-bg: var(--color-beige-light);
+  --color-bg-card: var(--color-beige-card);
+  --color-text: var(--color-navy-85);
+  --color-heading: var(--color-navy);
+  --color-accent: var(--color-soft-gold);
+  --color-border: var(--color-warm-beige);
+  --color-announcement: var(--color-navy);
+  --color-announcement-text: var(--color-warm-beige);
+  --color-focus: var(--color-soft-gold);
+
+  --btn-radius: 30px;
+  --rounded-radius: 15px;
+  --badge-radius: 5px;
+  --page-width: 1200px;
+  --fluid-container-width: 1410px;
+}
+
+/* Reset and Base Typography */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.714;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    color: var(--color-heading);
+    letter-spacing: -0.034em;
+  }
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Luxury Gradient Utilities from Spec */
+.bg-gradient-navy-beige {
+  background: linear-gradient(135deg, #1F2A44 0%, #E8DCC8 100%);
+}
+
+.bg-gradient-gold-navy {
+  background: linear-gradient(135deg, #C6A75E 0%, #1F2A44 100%);
+}
+
+.bg-gradient-beige-gold {
+  background: linear-gradient(135deg, #E8DCC8 0%, #C6A75E 100%);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center font-serif font-semibold rounded-pill transition-all duration-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-softGold focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: var(--color-navy);
+  color: var(--color-beige-light) !important;
+  padding: 0.85rem 2.5rem;
+}
+.btn-primary:hover {
+  background-color: var(--color-soft-gold);
+  color: var(--color-navy) !important;
+  box-shadow: 0 10px 15px -3px rgba(31, 42, 68, 0.25);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center font-serif font-semibold rounded-pill transition-all duration-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-softGold focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: transparent;
+  border: 1.5px solid var(--color-navy);
+  color: var(--color-navy);
+  padding: 0.85rem 2.5rem;
+}
+.btn-secondary:hover {
+  background-color: var(--color-navy);
+  color: var(--color-beige-light) !important;
+  box-shadow: 0 10px 15px -3px rgba(31, 42, 68, 0.25);
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center font-serif font-semibold rounded-pill transition-all duration-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-navy focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: var(--color-soft-gold);
+  color: var(--color-navy) !important;
+  padding: 0.85rem 2.5rem;
+}
+.btn-gold:hover {
+  background-color: var(--color-navy);
+  color: var(--color-warm-beige) !important;
+  box-shadow: 0 10px 15px -3px rgba(198, 167, 94, 0.35);
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center font-serif font-semibold rounded-pill transition-all duration-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-blush focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: transparent;
+  border: 1.5px solid var(--color-burgundy);
+  color: var(--color-burgundy);
+  padding: 0.85rem 2.5rem;
+}
+.btn-outline:hover {
+  background-color: var(--color-burgundy);
+  color: var(--color-ivory-light) !important;
+}
+
+.btn-dark-band {
+  @apply inline-flex items-center justify-center font-serif font-semibold rounded-pill transition-all duration-300 active:scale-95 focus-visible:outline-2 focus-visible:outline-ivory-light focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  background-color: var(--color-ivory-light);
+  color: var(--color-burgundy);
+  padding: 0.85rem 2.5rem;
+}
+.btn-dark-band:hover {
+  background-color: var(--color-blush);
+  color: var(--color-burgundy);
+  box-shadow: 0 10px 15px -3px rgba(62, 10, 20, 0.25);
+}
+
+/* Accessible focus styling */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Input Fields */
+.input-pill {
+  @apply h-[50px] px-6 rounded-pill border border-blush bg-white text-burgundy placeholder:text-burgundy/50 focus:outline-none focus:ring-2 focus:ring-rose focus:border-rose transition-all duration-200 text-sm;
+}
+
+/* Marquee continuous animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blush);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rose);
+}

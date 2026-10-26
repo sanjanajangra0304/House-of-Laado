@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+.next/
+out/
+build/
+dist/
+
+# Environment files (never commit secrets or active credentials)
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local database snapshots
+backups/
+backups/*
+
+# Local media uploads (keep directory with .gitkeep)
+public/uploads/*
+!public/uploads/.gitkeep
+apps/api/public/uploads/*
+!apps/api/public/uploads/.gitkeep
+
+# Logs
+*.log
+*.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Browser profiles and capture temp data
+docs/reference-screenshots/*profile*
+docs/reference-screenshots/*temp*
+docs/reference-screenshots/*local*
+
+# Editor directories and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Testing coverage
+coverage/
+# Internal reports - keep local, do not publish
+REFACTOR_AUDIT.md
+REFACTOR_REPORT.md
+
+# Build caches and temporary files
+.turbo/
+.cache/
+.next/
+
+# Local environment and credential files
+*.pem
+*.key
+*.cert
+
+# Internal reports - keep local, do not publish
+/REFACTOR_AUDIT.md
+/REFACTOR_REPORT.md
